@@ -1128,16 +1128,16 @@ Memory Usage：{str(system_info["memory_usage_percentage"]) + "%"}'''
                     user_id = event.user_id
                     current_time = time.time()
 
-                    if user_id in cooldowns1 and current_time - cooldowns1[user_id] < 18:
+                    if user_id in cooldowns1 and current_time - cooldowns1[user_id] < 5:
                         time_remaining1 = 18 - (current_time - cooldowns1[user_id])
-                        await actions.send(group_id=event.group_id, message=Manager.Message(Segments.Text(f"18秒个人cd，请等待 {time_remaining1:.1f} 秒后重试")))
+                        await actions.send(group_id=event.group_id, message=Manager.Message(Segments.Text(f"5秒个人cd，请等待 {time_remaining1:.1f} 秒后重试")))
                         return
                     else:
 
                      generating = True
                      result = order[start_index + len("生图 Pixiv "):].strip()
                     # await actions.send(group_id=event.group_id, message=Manager.Message(Segments.Text(f"取参数 {result}")))
-                     url_setted = "https://api.lolicon.app/setu/v2?num=1&r18=0&excludeAI=false&proxy=pixiv.t.sr-studio.top"
+                     url_setted = "https://api.lolicon.app/setu/v2?num=1&r18=0&excludeAI=false"
 
                      tags = result.split("&")
                      for TagIndex in range(len(tags)):
